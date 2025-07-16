@@ -1,0 +1,48 @@
+{
+  "name": "voidlib",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.13.1",
+  "license": "MIT",
+  "sideEffects": false,
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "node": {
+        "import": {
+          "types": "./dist/runtime/node/index.d.ts",
+          "default": "./dist/runtime/node/index.mjs"
+        }
+      },
+      "types": "./dist/index.d.ts",
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "default": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "react-native": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "prepack": "unbuild",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.17.0",
+    "@types/node": "^24.0.14",
+    "eslint": "^9.31.0",
+    "typescript": "^5.8.3",
+    "unbuild": "^3.5.0"
+  },
+  "pnpm": {
+    "neverBuiltDependencies": []
+  }
+}

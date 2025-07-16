@@ -3,7 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "packageManager": "pnpm@10.13.1",
+  "author": "Luca <git@lucacicada.me>",
   "license": "MIT",
+  "repository": "https://github.com/lucacicada/voidlib",
   "sideEffects": false,
   "exports": {
     "./package.json": "./package.json",

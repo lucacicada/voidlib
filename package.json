@@ -9,6 +9,7 @@
   "sideEffects": false,
   "exports": {
     "./package.json": "./package.json",
+
     ".": {
       "node": {
         "import": {
@@ -22,6 +23,57 @@
         "default": "./dist/index.mjs"
       },
       "default": "./dist/index.mjs"
+    },
+
+    "./fs": {
+      "import": {
+        "types": "./dist/common/fs/index.d.ts",
+        "default": "./dist/common/fs/index.mjs"
+      },
+      "node": {
+        "import": {
+          "types": "./dist/runtime/node/fs/index.d.ts",
+          "default": "./dist/runtime/node/fs/index.mjs"
+        }
+      },
+      "tauri": {
+        "import": {
+          "types": "./dist/runtime/tauri/fs/index.d.ts",
+          "default": "./dist/runtime/tauri/fs/index.mjs"
+        }
+      }
+    },
+    "./path": {
+      "import": {
+        "types": "./dist/common/path/index.d.ts",
+        "default": "./dist/common/path/index.mjs"
+      }
+    },
+
+    "./node": {
+      "import": {
+        "types": "./dist/runtime/node/index.d.ts",
+        "default": "./dist/runtime/node/index.mjs"
+      }
+    },
+    "./node/fs": {
+      "import": {
+        "types": "./dist/runtime/node/fs/index.d.ts",
+        "default": "./dist/runtime/node/fs/index.mjs"
+      }
+    },
+
+    "./tauri": {
+      "import": {
+        "types": "./dist/runtime/tauri/index.d.ts",
+        "default": "./dist/runtime/tauri/index.mjs"
+      }
+    },
+    "./tauri/fs": {
+      "import": {
+        "types": "./dist/runtime/tauri/fs/index.d.ts",
+        "default": "./dist/runtime/tauri/fs/index.mjs"
+      }
     }
   },
   "main": "./dist/index.mjs",
@@ -37,10 +89,20 @@
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
+  "peerDependencies": {
+    "@tauri-apps/plugin-fs": "^2.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@tauri-apps/plugin-fs": {
+      "optional": true
+    }
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^4.17.0",
-    "@types/node": "^24.0.14",
+    "@tauri-apps/plugin-fs": "^2.4.0",
+    "@types/node": "^24.0.15",
     "eslint": "^9.31.0",
+    "pathe": "^2.0.3",
     "typescript": "^5.8.3",
     "unbuild": "^3.5.0"
   },

@@ -3,7 +3,7 @@
 /**
  * A no-operation function.
  */
-export const NOOP = () => {}
+export const NOOP = (): void => {}
 
 /**
  * A function that always returns `false`.
@@ -14,6 +14,8 @@ export const FALSE = () => false as const
  * A function that always returns `true`.
  */
 export const TRUE = () => false as const
+
+// Primordials
 
 /**
  * Equivalent of `Object.prototype.toString.call(value)`
@@ -242,27 +244,27 @@ export function isPromise<T = unknown>(value: unknown): value is Promise<T> {
  * Check if the value is a `PromiseLike<T>`.
  */
 export function isPromiseLike<T = unknown>(value: unknown): value is PromiseLike<T> {
-  return value != null && typeof value === 'object' && 'then' in value && typeof value.then === 'function'
+  return typeof value === 'object' && value != null && 'then' in value && typeof value.then === 'function'
 }
 
 /**
  * Alias of isPromiseLike
  */
 export function isAwaitable<T = unknown>(value: unknown): value is PromiseLike<T> {
-  return value != null && typeof value === 'object' && 'then' in value && typeof value.then === 'function'
+  return typeof value === 'object' && value != null && 'then' in value && typeof value.then === 'function'
 }
 
 /**
  * Check if the value is an `AsyncIterable<T>`.
  */
 export function isAsyncIterable<T = unknown>(value: unknown): value is AsyncIterable<T> {
-  return value != null && typeof value === 'object' && Symbol.asyncIterator in value && typeof value[Symbol.asyncIterator] === 'function'
+  return typeof value === 'object' && value != null && Symbol.asyncIterator in value && typeof value[Symbol.asyncIterator] === 'function'
 }
 
 /**
  * Returns a boolean indicating whether or not an absolute URL, or a relative URL combined with a base URL, are parsable and valid.
  */
-export function canParseUrl(url: string | URL, base?: string): boolean {
+export function canParseUrl(url: string | URL, base?: string | URL): boolean {
   if (URL.canParse) {
     return URL.canParse(url, base)
   }
@@ -385,7 +387,7 @@ export function timeout(timeout: number): Promise<void> {
 }
 
 export function hasMethod(value: unknown, method: PropertyKey) /* : value is object */ {
-  return typeof value === 'object' && value !== null && method in value && typeof (value as any)[method] === 'function'
+  return typeof value === 'object' && value !== null && method in value && typeof value[method as keyof typeof value] === 'function'
 }
 
 /**

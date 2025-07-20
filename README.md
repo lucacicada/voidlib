@@ -25,10 +25,10 @@ for await (const file of walk('/path/to/dir', {
   recursive: true,
 
   // Only yield files, nothing else
-  include: (entry) => entry.isFile() && entry.name.endsWith('.ts'),
+  include: entry => entry.isFile() && entry.name.endsWith('.ts'),
 
   // Do not recurse into hidden directories
-  recurse: (entry => !entry.name.startsWith('.')),
+  recurse: entry => !entry.name.startsWith('.'),
 })) {
   console.log(file) // file is a TypeScript (.ts) file
 }

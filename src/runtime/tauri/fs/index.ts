@@ -1,7 +1,12 @@
-import type { DirEntry } from '@tauri-apps/plugin-fs'
+import type { DirEntry as TauriDirEntry } from '@tauri-apps/plugin-fs'
 import type { WalkOptions as WalkOptionsCommon } from '../../../common/fs'
 import { readDir } from '@tauri-apps/plugin-fs'
 import { join } from '../../../common/path'
+
+/** @inheritdoc */
+export interface DirEntry extends TauriDirEntry {
+  parentPath: string
+}
 
 /** @inheritdoc */
 export interface WalkOptions<T> extends WalkOptionsCommon<T, DirEntry> {}
@@ -13,7 +18,9 @@ export async function* walk<T = DirEntry>(path: string, options?: WalkOptions<T>
   while (stack.length > 0) {
     const currentPath = stack.pop()!
 
-    for (const entry of await readDir(currentPath)) {
+    for (const entry of await readDir(currentPath) as DirEntry[]) {
+      entry.parentPath = currentPath
+
       if (options?.include?.(entry) ?? true) {
         yield options?.transform ? await options.transform(entry) : (entry as T)
       }

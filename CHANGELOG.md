@@ -1,6 +1,28 @@
 # Changelog
 
 
+## v0.0.4
+
+[compare changes](https://github.com/lucacicada/voidlib/compare/v0.0.3...v0.0.4)
+
+### 🚀 Enhancements
+
+- Add parentPath to Tauri DirEntry ([19b9b36](https://github.com/lucacicada/voidlib/commit/19b9b36))
+- Add sanitizeFileName ([f7960ea](https://github.com/lucacicada/voidlib/commit/f7960ea))
+- Add pathToFileURL ([5bd0b01](https://github.com/lucacicada/voidlib/commit/5bd0b01))
+
+### 🏡 Chore
+
+- Update deps ([7ab5ca0](https://github.com/lucacicada/voidlib/commit/7ab5ca0))
+
+### ✅ Tests
+
+- Add tests ([49772eb](https://github.com/lucacicada/voidlib/commit/49772eb))
+
+### ❤️ Contributors
+
+- Lucacicada ([@lucacicada](https://github.com/lucacicada))
+
 ## v0.0.3
 
 [compare changes](https://github.com/lucacicada/voidlib/compare/v0.0.2...v0.0.3)

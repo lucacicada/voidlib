@@ -82,6 +82,7 @@
   "scripts": {
     "build": "unbuild",
     "prepack": "unbuild",
+    "test": "vitest run",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
@@ -100,7 +101,8 @@
     "eslint": "^9.31.0",
     "pathe": "^2.0.3",
     "typescript": "^5.8.3",
-    "unbuild": "^3.6.0"
+    "unbuild": "^3.6.0",
+    "vitest": "^3.2.4"
   },
   "pnpm": {
     "neverBuiltDependencies": []

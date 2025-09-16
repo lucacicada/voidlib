@@ -2,7 +2,7 @@
 
 import type { Dirent } from 'node:fs'
 import type { WalkOptions as WalkOptionsCommon } from '../../../common/fs'
-import { opendir } from 'node:fs/promises'
+import { opendir, stat } from 'node:fs/promises'
 import { join } from 'node:path'
 
 /** @inheritdoc */
@@ -28,4 +28,28 @@ export async function* walk<T = Dirent<string>>(path: string, options?: WalkOpti
       }
     }
   }
+}
+
+/**
+ * Check if a file exists.
+ */
+export async function fileExists(path: string): Promise<boolean> {
+  try {
+    return (await stat(path)).isFile()
+  }
+  catch { }
+
+  return false
+}
+
+/**
+ * Check if a directory exists.
+ */
+export async function directoryExists(path: string): Promise<boolean> {
+  try {
+    return (await stat(path)).isDirectory()
+  }
+  catch { }
+
+  return false
 }

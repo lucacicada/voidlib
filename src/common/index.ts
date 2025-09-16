@@ -386,7 +386,7 @@ export function timeout(timeout: number): Promise<void> {
   })
 }
 
-export function hasMethod(value: unknown, method: PropertyKey) /* : value is object */ {
+export function hasMethod(value: unknown, method: PropertyKey): value is object {
   return typeof value === 'object' && value !== null && method in value && typeof value[method as keyof typeof value] === 'function'
 }
 
@@ -522,10 +522,8 @@ export async function mapAsync<T, U>(array: T[], callbackfn: (value: T, index: n
   return result
 }
 
-export function omitUndefined<const T extends Record<PropertyKey, unknown>>(obj: T) {
-  return Object.fromEntries(Object.entries(obj).filter(([_, value]) => value !== undefined)) as {
-    [K in keyof T as Exclude<T[K], undefined> extends never ? never : K]: Exclude<T[K], undefined>
-  }
+export function omitUndefined<const T extends Record<PropertyKey, unknown>>(obj: T): { [K in keyof T as Exclude<T[K], undefined> extends never ? never : K]: Exclude<T[K], undefined>; } {
+  return Object.fromEntries(Object.entries(obj).filter(([_, value]) => value !== undefined)) as any
 }
 
 export function nonNullable<T>(value: T): value is NonNullable<T> {

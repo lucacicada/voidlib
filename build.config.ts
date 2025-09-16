@@ -1,7 +1,6 @@
 import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
-  failOnWarn: false,
   declaration: true,
 
   entries: [
@@ -9,7 +8,9 @@ export default defineBuildConfig({
 
     'src/common/index',
     'src/common/fs/index',
+    'src/common/math/index',
     'src/common/path/index',
+    'src/common/url/index',
 
     'src/runtime/node/index',
     'src/runtime/node/fs/index',
@@ -17,4 +18,10 @@ export default defineBuildConfig({
     'src/runtime/tauri/index',
     'src/runtime/tauri/fs/index',
   ],
+
+  externals: [],
+
+  rollup: {
+    inlineDependencies: true,
+  },
 })

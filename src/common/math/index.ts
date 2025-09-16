@@ -216,3 +216,10 @@ export const fround = Math.fround
  * @param x A numeric expression.
  */
 export const cbrt = Math.cbrt
+
+export function clamp(value: number, min: number, max: number): number {
+  // if (min > max) {
+  //   throw new RangeError('The minimum value must be less than or equal to the maximum value.')
+  // }
+  return Math.min(Math.max(value, min), max)
+}

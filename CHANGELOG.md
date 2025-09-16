@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/lucacicada/voidlib/compare/v0.0.4...v0.0.5)
+
+### 🚀 Enhancements
+
+- Better URL handling, new math module, inline dependencies on build ([838be82](https://github.com/lucacicada/voidlib/commit/838be82))
+- Add queryObject utility ([5e3d813](https://github.com/lucacicada/voidlib/commit/5e3d813))
+- Add fs file and directory exist utils ([ef10e8b](https://github.com/lucacicada/voidlib/commit/ef10e8b))
+
+### 🏡 Chore
+
+- License for bundled dependencies ([f01e1bf](https://github.com/lucacicada/voidlib/commit/f01e1bf))
+- Update deps ([5009b56](https://github.com/lucacicada/voidlib/commit/5009b56))
+- Build object utils ([800c795](https://github.com/lucacicada/voidlib/commit/800c795))
+
+### ❤️ Contributors
+
+- Lucacicada ([@lucacicada](https://github.com/lucacicada))
+
 ## v0.0.4
 
 [compare changes](https://github.com/lucacicada/voidlib/compare/v0.0.3...v0.0.4)

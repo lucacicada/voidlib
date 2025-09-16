@@ -9,6 +9,7 @@ export default defineBuildConfig({
     'src/common/index',
     'src/common/fs/index',
     'src/common/math/index',
+    'src/common/object/index',
     'src/common/path/index',
     'src/common/url/index',
 

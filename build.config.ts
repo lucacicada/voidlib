@@ -7,6 +7,10 @@ export default defineBuildConfig({
     'src/index',
 
     'src/common/index',
+    'src/common/array/index',
+    'src/common/async/index',
+    'src/common/crypto/index',
+    'src/common/encoding/index',
     'src/common/fs/index',
     'src/common/math/index',
     'src/common/object/index',

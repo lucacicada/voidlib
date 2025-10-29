@@ -468,60 +468,6 @@ export function task<T = void>(): Task<T> {
   return promise
 }
 
-export function shuffle<T>(array: T[]): T[] {
-  const length = array == null ? 0 : array.length
-
-  if (!length) {
-    return []
-  }
-
-  let index = -1
-  const lastIndex = length - 1
-  const result: T[] = [...array]
-
-  while (++index < length) {
-    const rand = index + Math.floor(Math.random() * (lastIndex - index + 1))
-    const value = result[rand]!
-    result[rand] = result[index]!
-    result[index] = value
-  }
-
-  return result
-}
-
-/**
- * Map an array.
- */
-export function map<T, U>(array: T[], callbackfn: (value: T, index: number, array: T[]) => U): U[] {
-  const length = array == null ? 0 : array.length
-
-  if (!length) {
-    return []
-  }
-
-  return array.map(callbackfn)
-}
-
-/**
- * Map an array asynchronously awaiting on each iteration.
- */
-export async function mapAsync<T, U>(array: T[], callbackfn: (value: T, index: number, array: T[]) => U | Promise<U>): Promise<U[]> {
-  const length = array == null ? 0 : array.length
-
-  if (!length) {
-    return []
-  }
-
-  let index = -1
-  const result: U[] = []
-
-  while (++index < length) {
-    result[index] = await callbackfn(array[index]!, index, array)
-  }
-
-  return result
-}
-
 export function omitUndefined<const T extends Record<PropertyKey, unknown>>(obj: T): { [K in keyof T as Exclude<T[K], undefined> extends never ? never : K]: Exclude<T[K], undefined>; } {
   return Object.fromEntries(Object.entries(obj).filter(([_, value]) => value !== undefined)) as any
 }

@@ -12,23 +12,10 @@ export function pathToFileURL(path: string): string {
     .replace(/^[^\w\-./]+/, match => encodeURIComponent(match))
     .replace(/[^\w\-./]+$/, match => encodeURIComponent(match))
 
-  return `file:${path}` // new URL(`file:${path}`) // Do not use URL, its not truly standard across js runtimes
+  return `file:///${path}` // Do not use new URL(), it will not preserve spaces
 }
 
 export function fileURLToPath(url: URL | string): string {
-  if (typeof url === 'string') {
-    url = new URL(url)
-  }
-
-  // if (url.protocol !== 'file:') {
-  //   throw new Error('The URL must use the file: protocol')
-  // }
-
-  // if (url.hostname) {
-  //   throw new Error('The file: URL host must be \'localhost\' or empty')
-  // }
-
-  const pathname = normalize(decodeURIComponent(url.pathname))
-
-  return pathname
+  const pathname = typeof url === 'string' ? new URL(url).pathname : url.pathname
+  return normalize(decodeURIComponent(pathname))
 }

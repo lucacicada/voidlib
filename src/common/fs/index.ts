@@ -37,7 +37,7 @@ export interface WalkOptions<T, TEntry> {
   /**
    * Transform the entry before yielding it.
    */
-  transform?: (entry: TEntry) => T | Promise<T>
+  transform?: (entry: TEntry) => T | PromiseLike<T>
 
   /**
    * Callback for when an entry is excluded.

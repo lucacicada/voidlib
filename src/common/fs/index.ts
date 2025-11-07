@@ -51,6 +51,6 @@ export interface WalkOptions<T, TEntry> {
  *
  * @template T - The type of the entries yielded by the walk.
  */
-export async function* walk<T = unknown>(_path: string, _options?: WalkOptions<T, unknown>): AsyncGenerator<Awaited<T>, void, unknown> {
+export async function* walk<T = unknown>(_path: string | string[], _options?: WalkOptions<T, unknown>): AsyncGenerator<Awaited<T>, void, unknown> {
   throw new Error('File system is not supported for the current runtime')
 }

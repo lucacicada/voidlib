@@ -12,8 +12,8 @@ export interface DirEntry extends TauriDirEntry {
 export interface WalkOptions<T> extends WalkOptionsCommon<T, DirEntry> {}
 
 /** @inheritdoc */
-export async function* walk<T = DirEntry>(path: string, options?: WalkOptions<T>): AsyncGenerator<Awaited<T>, void, unknown> {
-  const stack: string[] = [path]
+export async function* walk<T = DirEntry>(path: string | string[], options?: WalkOptions<T>): AsyncGenerator<Awaited<T>, void, unknown> {
+  const stack: string[] = Array.isArray(path) ? [...path] : [path]
 
   while (stack.length > 0) {
     const currentPath = stack.pop()!

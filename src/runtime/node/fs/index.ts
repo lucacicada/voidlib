@@ -26,9 +26,9 @@ export interface WalkOptions<T> extends WalkOptionsCommon<T, Dirent<string>> {
  *
  * @template T - The type of the entries yielded by the walk.
  */
-export async function* walk<T = Dirent<string>>(path: string, options?: WalkOptions<T>): AsyncGenerator<T, void, unknown> {
+export async function* walk<T = Dirent<string>>(path: string | string[], options?: WalkOptions<T>): AsyncGenerator<T, void, unknown> {
   const ignoreInaccessible = options?.ignoreInaccessible ?? true
-  const stack: string[] = [path]
+  const stack: string[] = Array.isArray(path) ? [...path] : [path]
 
   while (stack.length > 0) {
     const currentPath = stack.pop()!

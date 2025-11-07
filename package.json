@@ -76,10 +76,10 @@
     }
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^6.1.0",
+    "@antfu/eslint-config": "^6.2.0",
     "@tauri-apps/plugin-fs": "^2.4.4",
-    "@types/node": "^24.9.2",
-    "eslint": "^9.38.0",
+    "@types/node": "^24.10.0",
+    "eslint": "^9.39.1",
     "pathe": "^2.0.3",
     "typescript": "^5.9.3",
     "unbuild": "^3.6.1",

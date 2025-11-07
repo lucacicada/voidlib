@@ -1,6 +1,44 @@
 # Changelog
 
 
+## v0.0.6
+
+[compare changes](https://github.com/lucacicada/voidlib/compare/v0.0.5...v0.0.6)
+
+### 🚀 Enhancements
+
+- Add array utility functions ([68aef87](https://github.com/lucacicada/voidlib/commit/68aef87))
+- Add async utility functions ([c1cbdc4](https://github.com/lucacicada/voidlib/commit/c1cbdc4))
+- Add encoding utility functions ([1d0291d](https://github.com/lucacicada/voidlib/commit/1d0291d))
+- Add cryptography utility functions ([f8ce451](https://github.com/lucacicada/voidlib/commit/f8ce451))
+- Add MaybePromise type ([a12cbe1](https://github.com/lucacicada/voidlib/commit/a12cbe1))
+- Export array async crypto and encoding ([67af4e9](https://github.com/lucacicada/voidlib/commit/67af4e9))
+- Update walk function to accept string array for path parameter ([39211c8](https://github.com/lucacicada/voidlib/commit/39211c8))
+
+### 🩹 Fixes
+
+- Update walk transform type to use PromiseLike ([fe3c495](https://github.com/lucacicada/voidlib/commit/fe3c495))
+- Correct file URL format ([08b55fd](https://github.com/lucacicada/voidlib/commit/08b55fd))
+
+### 💅 Refactors
+
+- Move map utils to separate directory ([44cad6a](https://github.com/lucacicada/voidlib/commit/44cad6a))
+- Allow walk to ignore inaccessible nested directories ([eba50e2](https://github.com/lucacicada/voidlib/commit/eba50e2))
+
+### 🏡 Chore
+
+- Update package.json structure and dependencies ([b0d051c](https://github.com/lucacicada/voidlib/commit/b0d051c))
+- Update deps ([533515a](https://github.com/lucacicada/voidlib/commit/533515a))
+
+### ✅ Tests
+
+- Add unit tests for hex encoding and decoding ([a1102cd](https://github.com/lucacicada/voidlib/commit/a1102cd))
+- Update URL test cases ([df70231](https://github.com/lucacicada/voidlib/commit/df70231))
+
+### ❤️ Contributors
+
+- Lucacicada ([@lucacicada](https://github.com/lucacicada))
+
 ## v0.0.5
 
 [compare changes](https://github.com/lucacicada/voidlib/compare/v0.0.4...v0.0.5)
